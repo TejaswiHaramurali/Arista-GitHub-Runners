@@ -1,0 +1,18 @@
+FROM docker:latest
+
+# Install required dependencies
+RUN apt-get update && apt-get install -y \
+    curl \
+    netcat \
+    vim \
+    net-tools
+
+EXPOSE 5555
+
+# Copy entrypoint script
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
+# Set the entrypoint
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+

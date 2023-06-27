@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  main:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 5555:5555
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./logs:/logs
